@@ -1,0 +1,260 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  background-color: white;
+  color: #2d3436;
+}
+
+input,
+textarea {
+  padding: 12px 16px;
+  margin: 12px 0;
+  font-family: "Nunito", sans-serif;
+  font-size: 16px;
+  background-color: #f1f2f6;
+  color: #3b4a54;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+}
+
+input::placeholder,
+textarea::placeholder {
+  font-size: 16px;
+  color: #aaa;
+}
+
+span {
+  color: #2c87ea;
+  background-color: #ecf6ff;
+  border-radius: 4px;
+  padding: 7px 14px;
+}
+
+.note-app__header {
+  position: fixed;
+  top: 0;
+  z-index: 5;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 16px;
+  border-bottom: 1px solid #f1f2f6;
+  background-color: white;
+}
+
+.note-app__header h1 {
+  padding: 8px 0;
+  flex: 1;
+}
+
+.note-search {
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  padding: 0 16px;
+  background-color: #f0f2f5;
+}
+
+.note-search span {
+  color: #aaa;
+  margin-right: 16px;
+  background-color: transparent;
+}
+
+.note-search input {
+  padding: 0;
+}
+
+.note-app__body {
+  max-width: 1000px;
+  margin: 16px auto;
+  padding: 12px;
+}
+
+.note-app__body::before {
+  content: "";
+  display: block;
+  padding: 35px 0;
+}
+
+.note-app__body h2 {
+  margin: 16px 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #f1f2f6;
+}
+
+.note-app__title {
+  display: flex;
+  align-items: center;
+}
+
+.note-app__title span {
+  font-size: 16px;
+  margin-right: 16px;
+}
+
+.note-input {
+  margin: 0 auto;
+  max-width: 500px;
+  margin-bottom: 48px;
+}
+
+.note-input input,
+.note-input textarea {
+  display: block;
+  width: 100%;
+}
+
+.note-input__title__char-limit {
+  text-align: right;
+}
+
+.note-input__title__char-limit span {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.note-input__body {
+  min-height: 175px;
+}
+
+.note-input button {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  background-color: #2c87ea;
+  font-family: "Nunito", sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.note-input button:hover {
+  background-color: #1363df;
+}
+
+.notes-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: minmax(min-content, max-content);
+  gap: 16px;
+  margin: 32px 0 48px 0;
+}
+
+.notes-list__empty-message {
+  text-align: center;
+  color: #aaa;
+}
+
+.note-item {
+  position: relative;
+  color: #2c87ea;
+  background-color: #ecf6ff;
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+
+.note-item__content {
+  flex: 1;
+}
+
+.note-item__title {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-bottom: 4px;
+}
+
+.note-item__date {
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.note-item__body {
+  font-size: 14px;
+}
+
+.note-item__action {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 16px;
+}
+
+.note-item__delete-button button,
+.note-item__archive-button button {
+  display: inline-block;
+  color: white;
+  border: 0;
+  border-radius: 100vmax;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.note-item__delete-button button {
+  background-color: #e64848;
+  margin-right: 10px;
+}
+
+.note-item__archive-button button {
+  background-color: #feb139;
+}
+
+.note-item__delete-button .tooltiptext,
+.note-item__archive-button .tooltiptext {
+  visibility: hidden;
+  font-size: 12px;
+  font-weight: 700;
+  color: white;
+  background-color: #2d3436;
+  position: absolute;
+  z-index: 1;
+  bottom: 58px;
+  left: 5%;
+}
+
+.note-item__archive-button .tooltiptext {
+  left: 10%;
+}
+
+.note-item__delete-button:hover .tooltiptext,
+.note-item__archive-button:hover .tooltiptext {
+  visibility: visible;
+}
+
+@media only screen and (min-width: 500px) {
+  .notes-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .notes-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .note-search input {
+    min-width: 400px;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .notes-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
